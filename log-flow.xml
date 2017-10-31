@@ -1,0 +1,390 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.1">
+  <description>Listen to incoming Logs using ListenUDP Compressor and pass
+    them to GCP PubSub via a Compression Compressor</description>
+  <groupId>6c105dc0-015f-1000-1130-592a01c7982b</groupId>
+  <name>Log-flow</name>
+  <snippet>
+    <processGroups>
+      <id>296cb45e-3baf-37cf-0000-000000000000</id>
+      <parentGroupId>7e2fb2b6-4439-3f7f-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>0.0</y>
+      </position>
+      <comments></comments>
+      <contents>
+        <connections>
+          <id>e7b3dadc-5a3b-3579-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+          <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+          <destination>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>5d7b39aa-91e8-37fd-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </destination>
+          <flowFileExpiration>0 sec</flowFileExpiration>
+          <labelIndex>1</labelIndex>
+          <name></name>
+          <prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers>
+          <selectedRelationships>success</selectedRelationships>
+          <source>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>f89ca3ff-d253-3d55-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </source>
+          <zIndex>0</zIndex>
+        </connections>
+        <connections>
+          <id>f0dd08b6-ba39-323f-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+          <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+          <destination>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>34b3b962-ca0c-383e-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </destination>
+          <flowFileExpiration>0 sec</flowFileExpiration>
+          <labelIndex>1</labelIndex>
+          <name></name>
+          <prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers>
+          <selectedRelationships>success</selectedRelationships>
+          <source>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>5d7b39aa-91e8-37fd-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </source>
+          <zIndex>0</zIndex>
+        </connections>
+        <connections>
+          <id>4d1de0b5-d15a-3b3c-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+          <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+          <bends>
+            <x>1313.771514386142</x>
+            <y>34.0</y>
+          </bends>
+          <bends>
+            <x>1313.771514386142</x>
+            <y>84.0</y>
+          </bends>
+          <destination>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>5d7b39aa-91e8-37fd-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </destination>
+          <flowFileExpiration>0 sec</flowFileExpiration>
+          <labelIndex>1</labelIndex>
+          <name></name>
+          <selectedRelationships>failure</selectedRelationships>
+          <source>
+            <groupId>296cb45e-3baf-37cf-0000-000000000000</groupId>
+            <id>5d7b39aa-91e8-37fd-0000-000000000000</id>
+            <type>PROCESSOR</type>
+          </source>
+          <zIndex>0</zIndex>
+        </connections>
+        <processors>
+          <id>f89ca3ff-d253-3d55-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <position>
+            <x>532.0714111328125</x>
+            <y>316.8673377475443</y>
+          </position>
+          <bundle>
+            <artifact>nifi-standard-nar</artifact>
+            <group>org.apache.nifi</group>
+            <version>1.4.0</version>
+          </bundle>
+          <config>
+            <bulletinLevel>WARN</bulletinLevel>
+            <comments></comments>
+            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+            <descriptors>
+              <entry>
+                <key>Local Network Interface</key>
+                <value>
+                  <name>Local Network Interface</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Port</key>
+                <value>
+                  <name>Port</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Receive Buffer Size</key>
+                <value>
+                  <name>Receive Buffer Size</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Max Size of Message Queue</key>
+                <value>
+                  <name>Max Size of Message Queue</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Max Size of Socket Buffer</key>
+                <value>
+                  <name>Max Size of Socket Buffer</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Character Set</key>
+                <value>
+                  <name>Character Set</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Max Batch Size</key>
+                <value>
+                  <name>Max Batch Size</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Message Delimiter</key>
+                <value>
+                  <name>Message Delimiter</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Sending Host</key>
+                <value>
+                  <name>Sending Host</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Sending Host Port</key>
+                <value>
+                  <name>Sending Host Port</name>
+                </value>
+              </entry>
+            </descriptors>
+            <executionNode>ALL</executionNode>
+            <lossTolerant>false</lossTolerant>
+            <penaltyDuration>30 sec</penaltyDuration>
+            <properties>
+              <entry>
+                <key>Local Network Interface</key>
+              </entry>
+              <entry>
+                <key>Port</key>
+                <value>1514</value>
+              </entry>
+              <entry>
+                <key>Receive Buffer Size</key>
+                <value>65507 B</value>
+              </entry>
+              <entry>
+                <key>Max Size of Message Queue</key>
+                <value>10000</value>
+              </entry>
+              <entry>
+                <key>Max Size of Socket Buffer</key>
+                <value>1 MB</value>
+              </entry>
+              <entry>
+                <key>Character Set</key>
+                <value>UTF-8</value>
+              </entry>
+              <entry>
+                <key>Max Batch Size</key>
+                <value>1</value>
+              </entry>
+              <entry>
+                <key>Message Delimiter</key>
+                <value>\n</value>
+              </entry>
+              <entry>
+                <key>Sending Host</key>
+              </entry>
+              <entry>
+                <key>Sending Host Port</key>
+              </entry>
+            </properties>
+            <runDurationMillis>0</runDurationMillis>
+            <schedulingPeriod>0 sec</schedulingPeriod>
+            <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+            <yieldDuration>1 sec</yieldDuration>
+          </config>
+          <name>ListenUDP</name>
+          <relationships>
+            <autoTerminate>false</autoTerminate>
+            <name>success</name>
+          </relationships>
+          <state>STOPPED</state>
+          <style></style>
+          <type>org.apache.nifi.processors.standard.ListenUDP</type>
+        </processors>
+        <processors>
+          <id>34b3b962-ca0c-383e-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <position>
+            <x>1141.5116237495897</x>
+            <y>336.6098509829294</y>
+          </position>
+          <bundle>
+            <artifact>nifi-gcp-pubsub-publisher</artifact>
+            <group>default</group>
+            <version>unversioned</version>
+          </bundle>
+          <config>
+            <bulletinLevel>WARN</bulletinLevel>
+            <comments></comments>
+            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+            <descriptors>
+              <entry>
+                <key>Authentication Keys</key>
+                <value>
+                  <name>Authentication Keys</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Topic</key>
+                <value>
+                  <name>Topic</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Project ID</key>
+                <value>
+                  <name>Project ID</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Batch size</key>
+                <value>
+                  <name>Batch size</name>
+                </value>
+              </entry>
+            </descriptors>
+            <executionNode>ALL</executionNode>
+            <lossTolerant>false</lossTolerant>
+            <penaltyDuration>30 sec</penaltyDuration>
+            <properties>
+              <entry>
+                <key>Authentication Keys</key>
+              </entry>
+              <entry>
+                <key>Topic</key>
+                <value>newTopic</value>
+              </entry>
+              <entry>
+                <key>Project ID</key>
+                <value>cloudcover-sandbox</value>
+              </entry>
+              <entry>
+                <key>Batch size</key>
+                <value>100</value>
+              </entry>
+            </properties>
+            <runDurationMillis>0</runDurationMillis>
+            <schedulingPeriod>0 sec</schedulingPeriod>
+            <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+            <yieldDuration>1 sec</yieldDuration>
+          </config>
+          <name>GcpPubsubPublisher</name>
+          <relationships>
+            <autoTerminate>true</autoTerminate>
+            <name>failure</name>
+          </relationships>
+          <relationships>
+            <autoTerminate>true</autoTerminate>
+            <name>toobig</name>
+          </relationships>
+          <state>STOPPED</state>
+          <style></style>
+          <type>com.synack.nifi.gcp.pubsub.publisher.GcpPubsubPublisher</type>
+        </processors>
+        <processors>
+          <id>5d7b39aa-91e8-37fd-0000-000000000000</id>
+          <parentGroupId>296cb45e-3baf-37cf-0000-000000000000</parentGroupId>
+          <position>
+            <x>858.7715143861419</x>
+            <y>-6.0</y>
+          </position>
+          <bundle>
+            <artifact>nifi-standard-nar</artifact>
+            <group>org.apache.nifi</group>
+            <version>1.4.0</version>
+          </bundle>
+          <config>
+            <bulletinLevel>WARN</bulletinLevel>
+            <comments></comments>
+            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+            <descriptors>
+              <entry>
+                <key>Mode</key>
+                <value>
+                  <name>Mode</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Compression Format</key>
+                <value>
+                  <name>Compression Format</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Compression Level</key>
+                <value>
+                  <name>Compression Level</name>
+                </value>
+              </entry>
+              <entry>
+                <key>Update Filename</key>
+                <value>
+                  <name>Update Filename</name>
+                </value>
+              </entry>
+            </descriptors>
+            <executionNode>ALL</executionNode>
+            <lossTolerant>false</lossTolerant>
+            <penaltyDuration>30 sec</penaltyDuration>
+            <properties>
+              <entry>
+                <key>Mode</key>
+                <value>compress</value>
+              </entry>
+              <entry>
+                <key>Compression Format</key>
+                <value>bzip2</value>
+              </entry>
+              <entry>
+                <key>Compression Level</key>
+                <value>1</value>
+              </entry>
+              <entry>
+                <key>Update Filename</key>
+                <value>true</value>
+              </entry>
+            </properties>
+            <runDurationMillis>0</runDurationMillis>
+            <schedulingPeriod>0 sec</schedulingPeriod>
+            <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+            <yieldDuration>1 sec</yieldDuration>
+          </config>
+          <name>CompressContent</name>
+          <relationships>
+            <autoTerminate>false</autoTerminate>
+            <name>failure</name>
+          </relationships>
+          <relationships>
+            <autoTerminate>false</autoTerminate>
+            <name>success</name>
+          </relationships>
+          <state>STOPPED</state>
+          <style></style>
+          <type>org.apache.nifi.processors.standard.CompressContent</type>
+        </processors>
+      </contents>
+      <name>LogFlow</name>
+    </processGroups>
+  </snippet>
+  <timestamp>10/30/2017 10:31:33 UTC</timestamp>
+</template>
